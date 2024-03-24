@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Rolling Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: #666;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Dice Rolling Simulator!</h1>
+        <form action="/" method="post">
+            <label for="num_dice">Number of dice to roll:</label>
+            <input type="number" id="num_dice" name="num_dice" min="1" value="1">
+            <label for="num_sides">Number of sides for each die:</label>
+            <input type="number" id="num_sides" name="num_sides" min="2" value="6">
+            <button type="submit">Roll Dice</button>
+        </form>
+
+        {% if result %}
+        <h2>Result</h2>
+        <p>Number of dice rolled: {{ num_dice }}</p>
+        <p>Number of sides per die: {{ num_sides }}</p>
+        <p>Total: {{ total }}</p>
+
+        <h2>Performance Analysis</h2>
+        <p>Average time per roll: {{ average_time_per_roll }}</p>
+        <p>Average memory usage per roll: {{ average_memory_usage_per_roll }}</p>
+
+        <h2>Statistics</h2>
+        <p>Total number of rolls: {{ num_dice }}</p>
+        <p>Rolls History:</p>
+        <ul>
+        {% for roll, frequency in rolls_history.items() %}
+            <li>{{ roll }}: {{ frequency }} times</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
+
+
+

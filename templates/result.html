@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Rolling Simulator - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Result</h2>
+        <p>Number of dice rolled: {{ num_dice }}</p>
+        <p>Number of sides per die: {{ num_sides }}</p>
+        <p>Total: {{ total }}</p>
+
+        <h2>Performance Analysis</h2>
+        <p>Average time per roll: {{ average_time_per_roll }}</p>
+        <p>Average memory usage per roll: {{ average_memory_usage_per_roll }}</p>
+
+        <h2>Statistics</h2>
+        <p>Total number of rolls: {{ num_dice }}</p>
+        <p>Rolls History:</p>
+        <ul>
+        {% for roll, frequency in rolls_history.items() %}
+            <li>{{ roll }}: {{ frequency }} times</li>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
